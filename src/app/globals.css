@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'AbelNF-Regular';
+  src: url('/fonts/AbelNF-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Visuelt Pro';
+  src: url('/fonts/Visuelt-pro-/VisueltPro-Thin.woff2') format('woff2'),
+       url('/fonts/Visuelt-pro-/VisueltPro-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Visuelt Pro';
+  src: url('/fonts/Visuelt-pro-/VisueltPro-ExtraLight.woff2') format('woff2'),
+       url('/fonts/Visuelt-pro-/VisueltPro-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Visuelt Pro';
+  src: url('/fonts/Visuelt-pro-/VisueltPro-Light.woff2') format('woff2'),
+       url('/fonts/Visuelt-pro-/VisueltPro-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Visuelt Pro';
+  src: url('/fonts/Visuelt-pro-/VisueltPro-Regular.woff2') format('woff2'),
+       url('/fonts/Visuelt-pro-/VisueltPro-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Visuelt Pro';
+  src: url('/fonts/Visuelt-pro-/VisueltPro-Medium.woff2') format('woff2'),
+       url('/fonts/Visuelt-pro-/VisueltPro-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Visuelt Pro';
+  src: url('/fonts/Visuelt-pro-/VisueltPro-Bold.woff2') format('woff2'),
+       url('/fonts/Visuelt-pro-/VisueltPro-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Visuelt Pro';
+  src: url('/fonts/Visuelt-pro-/VisueltPro-Black.woff2') format('woff2'),
+       url('/fonts/Visuelt-pro-/VisueltPro-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Visuelt Pro', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+/*Terminal
+**********************************************
+**********************************************
+*/
+
+
+/* Terminal specific styles */
+.terminal-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-track {
+  background: #00000020;
+  border-radius: 0 0 8px 0;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-thumb {
+  background: #22c55e60;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #22c55e80;
+}
+
+/* Blinking cursor effect */
+input.caret-green-500 {
+  caret-color: #22c55e;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { border-right-color: transparent; }
+  50% { border-right-color: #22c55e; }
+}
