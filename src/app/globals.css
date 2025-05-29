@@ -1,75 +1,21 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@font-face {
-  font-family: 'AbelNF-Regular';
-  src: url('/fonts/AbelNF-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+/* @font-face {
+   font-family: 'AbelNF-Regular';
+   src: url('/fonts/AbelNF-Regular.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+   }
 
-
-@font-face {
-  font-family: 'Visuelt Pro';
-  src: url('/fonts/Visuelt-pro-/VisueltPro-Thin.woff2') format('woff2'),
-       url('/fonts/Visuelt-pro-/VisueltPro-Thin.woff') format('woff');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Visuelt Pro';
-  src: url('/fonts/Visuelt-pro-/VisueltPro-ExtraLight.woff2') format('woff2'),
-       url('/fonts/Visuelt-pro-/VisueltPro-ExtraLight.woff') format('woff');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Visuelt Pro';
-  src: url('/fonts/Visuelt-pro-/VisueltPro-Light.woff2') format('woff2'),
-       url('/fonts/Visuelt-pro-/VisueltPro-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Visuelt Pro';
-  src: url('/fonts/Visuelt-pro-/VisueltPro-Regular.woff2') format('woff2'),
-       url('/fonts/Visuelt-pro-/VisueltPro-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Visuelt Pro';
-  src: url('/fonts/Visuelt-pro-/VisueltPro-Medium.woff2') format('woff2'),
-       url('/fonts/Visuelt-pro-/VisueltPro-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Visuelt Pro';
-  src: url('/fonts/Visuelt-pro-/VisueltPro-Bold.woff2') format('woff2'),
-       url('/fonts/Visuelt-pro-/VisueltPro-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Visuelt Pro';
-  src: url('/fonts/Visuelt-pro-/VisueltPro-Black.woff2') format('woff2'),
-       url('/fonts/Visuelt-pro-/VisueltPro-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
+   @font-face {
+   font-family: 'Visuelt Pro';
+   src:
+   url('/fonts/Visuelt-pro-/VisueltPro-Thin.woff2') format('woff2'),
+   url('/fonts/Visuelt-pro-/VisueltPro-Thin.woff') format('woff');
+   font-weight: 100;
+   font-style: normal;
+   font-display: swap;
+   } */
 
 :root {
   --background: #ffffff;
@@ -115,13 +61,10 @@ body {
   background: #555;
 }
 
-
-
 /*Terminal
 **********************************************
 **********************************************
 */
-
 
 /* Terminal specific styles */
 .terminal-scrollbar::-webkit-scrollbar {
@@ -152,6 +95,11 @@ input.caret-green-500 {
 }
 
 @keyframes blink {
-  from, to { border-right-color: transparent; }
-  50% { border-right-color: #22c55e; }
+  from,
+  to {
+    border-right-color: transparent;
+  }
+  50% {
+    border-right-color: #22c55e;
+  }
 }

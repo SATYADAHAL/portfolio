@@ -5,7 +5,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navigation from '../components/Navigation';
 import { FiMail, FiMessageSquare, FiMapPin } from 'react-icons/fi'; // Feather Icons
-import { FaGithub, FaLinkedin, FaDev } from 'react-icons/fa'; // Font Awesome
+import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Font Awesome
+import { FaSquareXTwitter } from 'react-icons/fa6';
 import { Slide } from 'react-toastify'; // Ensure Slide is imported
 
 export default function Contact() {
@@ -41,9 +42,7 @@ export default function Contact() {
       <Navigation />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 animate-fadeIn">
-            Contact Me
-          </h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 ">Contact Me</h2>
           <div className="bg-white rounded-lg shadow-md p-8 mb-3">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
@@ -55,7 +54,9 @@ export default function Contact() {
                 <ul className="space-y-4">
                   <li className="flex items-center text-gray-700">
                     <FiMail className="w-6 h-6 mr-3" />
-                    email@example.com
+                    <a href="mailto:dahal.satya321@gmail.com" className="hover:underline">
+                      dahal.satya321@gmail.com
+                    </a>
                   </li>
                   <li className="flex items-center text-gray-700">
                     <FiMessageSquare className="w-6 h-6 mr-3" />
@@ -63,7 +64,7 @@ export default function Contact() {
                   </li>
                   <li className="flex items-center text-gray-700">
                     <FiMapPin className="w-6 h-6 mr-3" />
-                    Based in Your Location
+                    Pokhara, Nepal
                   </li>
                 </ul>
               </div>
@@ -71,7 +72,7 @@ export default function Contact() {
                 <h3 className="text-xl font-semibold mb-4">Professional Profiles</h3>
                 <div className="space-y-4">
                   <a
-                    href="https://github.com/yourusername"
+                    href="https://github.com/satyadahal"
                     className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200"
                   >
                     <div className="flex items-center">
@@ -80,7 +81,7 @@ export default function Contact() {
                     </div>
                   </a>
                   <a
-                    href="https://linkedin.com/in/yourusername"
+                    href="https://www.linkedin.com/in/satya-prakash-dahal/"
                     className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200"
                   >
                     <div className="flex items-center">
@@ -89,18 +90,20 @@ export default function Contact() {
                     </div>
                   </a>
                   <a
-                    href="https://dev.to/yourusername"
+                    href="https://x.com/SatyaPrDahal"
                     className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <div className="flex items-center">
-                      <FaDev className="w-6 h-6 mr-3" />
-                      Dev.to Blog
+                      <FaSquareXTwitter className="w-6 h-6 mr-3 " />
+                      Twitter Profile
                     </div>
                   </a>
                 </div>
               </div>
             </div>
-            <div className="mt-12">
+            <div className="mt-5">
               <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>

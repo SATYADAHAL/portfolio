@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from './components/Footer'; // Import the Footer component
+import Footer from './components/Footer';
+import Head from "next/head";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Creative Designer & Developer",
-  description: "Portfolio website showcasing creative design and development work",
+  title: "Satya Prakash Dahal",
+  description: "Portfolio - Satya Pr. Dahal",
 };
 
 export default function RootLayout({
@@ -20,13 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
+      <Head>
+<meta name="apple-mobile-web-app-title" content="Portfolio" />
+        
+      </Head>
       <body className={inter.className}>
-        {/* Main Content */}
         <main className="min-h-screen flex flex-col">
           {children}
         </main>
-
-        {/* Footer Section */}
         <Footer />
       </body>
     </html>

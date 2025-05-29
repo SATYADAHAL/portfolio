@@ -1,9 +1,9 @@
 'use client';
-
-import { React, useRef } from 'react';
+import RightArrow from '../components/icons/RightArrow';
 import Navigation from '../components/Navigation';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Link from 'next/link';
+import { IconType } from 'react-icons';
 import Image from 'next/image';
 import { FaLinux, FaPython, FaDocker } from 'react-icons/fa';
 import {
@@ -11,41 +11,41 @@ import {
   SiDebian,
   SiArchlinux,
   SiFedora,
-  SiKaliLinux,
-  SiEmacs,
-  SiCuda,
-  Ssh,
+  SiKalilinux,
+  SiEac,
+  SiCoda,
+  SiGnometerminal,
   SiFlask,
   SiFastapi,
   SiDjango,
   SiNumpy,
-  SiMatplotlib,
+  SiDgraph,
 } from 'react-icons/si';
 
-const skillIcons = {
+const skillIcons: Record<string, IconType> = {
   Linux: FaLinux,
-  'Kali Linux': SiKaliLinux,
+  'Kali Linux': SiKalilinux,
   Ubuntu: SiUbuntu,
   Debian: SiDebian,
   Manjaro: SiArchlinux,
   'Arch Linux': SiArchlinux,
   Fedora: SiFedora,
-  Emacs: SiEmacs,
-  Elisp: SiEmacs,
-  CUDA: SiCuda,
+  Emacs: SiEac,
+  Elisp: SiEac,
+  CUDA: SiCoda,
   Docker: FaDocker,
   Python: FaPython,
-  SSH: Ssh,
+  SSH: SiGnometerminal,
   Flask: SiFlask,
   FastAPI: SiFastapi,
   Django: SiDjango,
   NumPy: SiNumpy,
-  Matplotlib: SiMatplotlib,
+  Matplotlib: SiDgraph,
 };
 
 const character = {
   name: 'Satya Pr. Dahal',
-  title: 'DevOps Dynamo & Inquisitive Explorer',
+  title: 'Sofware Engineer & Inquisitive Explorer',
   avatar: '/your-avatar.png',
 };
 
@@ -98,15 +98,27 @@ const journeySections = [
 ];
 
 const aboutText = `
-I'm a curious developer with a passion for building purposeful digital experiences.
-My journey includes working with technologies like FastAPI, Tailwind CSS, and MySQL, often combining them with modern frontend tools like Next.js.
-From speech recognition systems to terminal-style interfaces, I love turning technical ideas into clean, functional UIs.
-I'm also comfortable with tools like Docker, Conda, and version control systems, and I enjoy experimenting with AI and open source tools to extend my learning.
-Whether it's for a portfolio, a hackathon, or a long-term project, I aim to build with intention, clarity, and a touch of creativity.
+I bring strong Linux expertise with hands-on experience in system troubleshooting, shell scripting, and network configuration to ensure stable and secure environments.
+As a backend developer, I design and build RESTful APIs using Python frameworks like FastAPI and django, focusing on clean, maintainable code and scalable microservice architectures.
+I work extensively with PostgreSQL,MySQL, SQLAlchemy for robust database design and efficient data handling.
+I develop scalable web scraping solutions using Scrapy and Selenium that handle dynamic content, JavaScript rendering, and anti-bot mechanisms.
+I automate workflows and containerize applications with Docker, improving deployment consistency and operational efficiency.
+I collaborate effectively in team environments, following best practices for code management and continuous integration.
+My approach combines backend development, automation, and system administration to deliver practical, reliable, and maintainable solutions.
 `;
 
+type JourneySection = {
+  title: string;
+  description: string;
+  skillsHighlighted: string[];
+};
 
-const AnimatedCard = ({ section, index }) => {
+interface AnimatedCardProps {
+  section: JourneySection;
+  index: number;
+}
+
+const AnimatedCard: React.FC<AnimatedCardProps> = ({ section, index }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [10, -10]);
@@ -122,12 +134,14 @@ const AnimatedCard = ({ section, index }) => {
     >
       {/* Push pin SVG */}
       <div className="absolute top-5 -ml-1 w-10 h-10 z-20 md:left-1/2 md:-translate-x-1/2">
-        <img
-          src="/ping2.png"
-          alt="Push pin"
-          className="w-full h-full object-contain drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]"
-          style={{ transform: 'translateY(-2px)' }}
-        />
+<Image
+  src="/ping2.png"
+  alt="Push pin"
+  fill
+  className="object-contain w-full h-full drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]"
+  style={{ transform: 'translateY(-2px)' }}
+/>
+
       </div>
 
       <motion.div
@@ -172,7 +186,7 @@ const AnimatedCard = ({ section, index }) => {
 
 export default function About() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-x-hidden">
       <Navigation />
 
       {/* Animated Avatar Section */}
@@ -208,34 +222,73 @@ export default function About() {
         <motion.div
           className="max-w-3xl mx-auto text-center"
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
         >
-          <p className="text-gray-600 text-lg leading-relaxed">
-            {aboutText}
-          </p>
+          <p className="text-gray-600 text-lg leading-relaxed">{aboutText}</p>
         </motion.div>
       </section>
 
       {/* Timeline Journey */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px8 py-0">
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 w-1 h-full bg-gradient-to-b from-blue-200 to-indigo-200 rounded-full" />
+      {/* Timeline Journey */}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">My Journey</h2>
 
-          <div className="space-y-0 md:space-y-0">
-            {journeySections.map((section, index) => (
-              <div
-                key={index}
-                className={`flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}
-              >
-                <AnimatedCard section={section} index={index} />
-              </div>
-            ))}
+        <div className="relative">
+          {/* Vertical timeline line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-200 to-indigo-200 rounded-full z-0" />
+
+          <div className="space-y-16 relative z-10">
+            {journeySections.map((section, index) => {
+              const isLeft = index % 2 === 0;
+
+              return (
+                <div
+                  key={index}
+                  className={`flex md:justify-${isLeft ? 'start' : 'end'} relative ${
+                    isLeft ? 'pr-12' : 'pl-12'
+                  }`} // padding so cards don't get too close to the timeline line
+                >
+                  {/* Number badge */}
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 bg-white border-4 border-blue-500 rounded-full w-10 h-10 items-center justify-center font-semibold text-blue-600 z-20 shadow-md">
+                    {index + 1}
+                  </div>
+
+                  {/* Removed connector arrows */}
+
+                  <AnimatedCard section={section} index={index} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
+
+      <div className="flex justify-center mb-2">
+        <div className="relative inline-block overflow-visible">
+          <Link href="/contact" className="relative z-10 inline-flex items-center py-4 max-w-fit">
+            <span className="pl-14 pr-12 relative pointer-events-none">
+              <span className="group inline-flex items-center pointer-events-auto">
+                <span
+                  className="relative z-20 transition-transform duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] 
+                        group-hover:translate-x-3 inline-flex items-center"
+                >
+                  Lets Work together &nbsp;&nbsp;
+                  <RightArrow className="w-12 h-5" />
+                </span>
+                <span
+                  className="absolute left-[25px] top-1/2 h-12 w-12 bg-gray-200 rounded-full z-0
+                      -translate-y-1/2 origin-left
+                      transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]
+                      group-hover:w-[calc(100%-3rem)] 
+                      group-hover:translate-x-3
+                      group-hover:rounded-[1.5rem]"
+                />
+              </span>
+            </span>
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }
-

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import RightArrow from './components/icons/RightArrow';
 import Image from 'next/image';
 import Navigation from './components/Navigation';
 import React from 'react';
@@ -21,18 +22,25 @@ const NotFoundPage: React.FC = () => {
             <p className="text-gray-500 mb-6 sm:mb-8 max-w-md text-center md:text-left animate-fadeIn">
               The page you are looking for doesn&apos;t exist.
             </p>
-            <Link
-              href="/"
-              className="text-black font-semibold flex items-center text-lg sm:text-xl group transition-colors duration-300 ease-out hover:text-gray-600 animate-fadeIn"
-            >
-              <span className="relative flex items-center">
-                <span className="absolute right-0 bottom-0 bg-gray-200 rounded-full w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center transform translate-y-4 sm:translate-y-5 translate-x-1 sm:translate-x-1.4"></span>
-                <span className="relative z-10 ml-2">GO&nbsp;</span>
-              </span>
-              <span className="ml-2 sm:ml-3 font-semibold flex items-center">
-                BACK
-                <span className="font-normal text-gray-500 ml-1 animate-bounce-up-down">
-                  ⟵
+            <Link href="/" className="relative z-10 inline-flex items-center py-4 max-w-fit">
+              <span className="pl-14 pr-12 relative pointer-events-none">
+                <span className="group inline-flex items-center pointer-events-auto">
+                  <span
+                    className="relative z-20 transition-transform duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] 
+                               group-hover:-translate-x-3 inline-flex items-center"
+                  >
+                    <RightArrow className="w-12 h-5 rotate-180" />
+                    Go Back &nbsp;&nbsp;
+                  </span>
+
+                  <span
+                    className="absolute right-[25px] top-1/2 h-12 w-12 bg-gray-200 rounded-full z-0
+                               -translate-y-1/2 origin-right
+                               transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]
+                               group-hover:w-[calc(100%-3rem)] 
+                               group-hover:-translate-x-3
+                               group-hover:rounded-[1.5rem]"
+                  />
                 </span>
               </span>
             </Link>

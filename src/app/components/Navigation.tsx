@@ -62,7 +62,7 @@ export default function Navigation() {
     <nav className="fixed w-full flex justify-between items-center px-4 sm:px-8 py-3 z-50 bg-white h-[80px]">
       {/* Logo */}
       <Link href="/" className="relative w-12 h-12 ml-4 sm:ml-8 z-50">
-        <Image src="/logo-2.svg" alt="Logo" fill priority className="object-contain scale-[2]" />
+        <Image src={'/logo.svg'} alt="Logo" fill priority className="object-contain scale-[2]" />
       </Link>
 
       {/* Desktop Navigation */}
