@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://satyadahal.github.io/portfolio",
-"scripts": {
-  "dev": "next dev",
-  "build": "next build && next export",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
     "deploy": "next build && echo 'satyadahal.com.np' > out/CNAME && echo > out/.nojekyll && gh-pages -d out -b gh-pages",
-  "start": "next start",
-  "lint": "next lint"
-},
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@react-three/drei": "^10.0.5",
@@ -23,6 +23,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-force-graph-2d": "^1.27.1",
+    "react-google-recaptcha": "^3.1.0",
     "react-icons": "^5.5.0",
     "react-parallax-tilt": "^1.7.295",
     "react-three-fiber": "^6.0.13",
