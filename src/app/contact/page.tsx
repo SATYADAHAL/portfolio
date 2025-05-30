@@ -12,7 +12,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [captchaToken, setCaptchaToken] = useState('');
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -84,6 +84,7 @@ export default function Contact() {
         });
       }
     } catch (error) {
+      console.error('Caught error:', error);
       toast.error('Network error. Please try again later.', {
         position: 'bottom-right',
         autoClose: 2000,
