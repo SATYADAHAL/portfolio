@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import RightArrow from './icons/RightArrow';
-/*import Clock from './clock';*/
+import { withBasePath } from './imagePath';
+
+
 
 export default function HeroContent() {
   return (
@@ -10,14 +12,13 @@ export default function HeroContent() {
       <div className="max-w-2xl flex-1 text-center lg:text-left">
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-8 mt-4 text-gray-900">
           Software Engineer
-          <br />&  Backend Developer
-
+          <br />& Backend Developer
         </h1>
         <p className="text-base sm:text-lg mb-12 text-gray-800 leading-relaxed">
-Hi I&apos;m <b>Satya Pr. Dahal</b>. I enjoy building backend systems, automating workflows, and solving real-world problems with code.
-<br className="hidden sm:block" />
-I care about writing clean, reliable software that makes things work better.
-
+          Hi I&apos;m <b>Satya Pr. Dahal</b>. I enjoy building backend systems, automating
+          workflows, and solving real-world problems with code.
+          <br className="hidden sm:block" />I care about writing clean, reliable software that makes
+          things work better.
         </p>
 
         <div className="relative inline-block overflow-visible">
@@ -48,7 +49,7 @@ I care about writing clean, reliable software that makes things work better.
       <div className="flex-1 relative w-full lg:w-auto lg:min-w-[400px]">
         <div className="w-full h-[300px] sm:h-[400px] lg:h-[500px] lg:min-h-[500px] relative">
           <Image
-            src="/hero-new.svg"
+            src={withBasePath('/hero-new.svg')}
             alt="Hero Image"
             fill
             style={{

@@ -3,6 +3,8 @@ import RightArrow from './components/icons/RightArrow';
 import Image from 'next/image';
 import Navigation from './components/Navigation';
 import React from 'react';
+import { withBasePath } from './components/imagePath';
+
 
 const NotFoundPage: React.FC = () => {
   return (
@@ -50,7 +52,7 @@ const NotFoundPage: React.FC = () => {
           <div className="md:w-[65%] flex justify-center md:justify-end w-full pt-6 md:pt-0 md:ml-8">
             <div className="md:relative md:-right-10 w-full max-w-[400px] md:max-w-none animate-fadeIn">
               <Image
-                src="/404-illustration.svg"
+                src={withBasePath('/hero-new.svg')}
                 alt="404 Illustration"
                 width={600}
                 height={600}

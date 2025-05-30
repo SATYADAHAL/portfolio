@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { IconType } from 'react-icons';
 import Image from 'next/image';
 import { FaLinux, FaPython, FaDocker } from 'react-icons/fa';
+import { withBasePath } from '../components/imagePath';
 import {
   SiUbuntu,
   SiDebian,
@@ -135,7 +136,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({ section, index }) => {
       {/* Push pin SVG */}
       <div className="absolute top-5 -ml-1 w-10 h-10 z-20 md:left-1/2 md:-translate-x-1/2">
 <Image
-  src="/ping2.png"
+  src={withBasePath('/ping2.png')}
   alt="Push pin"
   fill
   className="object-contain w-full h-full drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]"
@@ -203,7 +204,7 @@ export default function About() {
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
             <Image
-              src={character.avatar}
+              src={withBasePath(character.avatar)}
               alt="Avatar"
               layout="fill"
               objectFit="cover"

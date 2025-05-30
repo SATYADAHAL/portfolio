@@ -6,6 +6,7 @@ import { SiGnuemacs } from "react-icons/si";
 import { SiJavascript } from 'react-icons/si';
 import { SiPython } from 'react-icons/si'; // import this along with other icons
 import Navigation from '../components/Navigation';
+import { withBasePath } from '../components/imagePath';
 
 
 
@@ -82,7 +83,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
           <AnimatePresence custom={direction} initial={false}>
             <motion.img
               key={project.images[index]}
-              src={project.images[index]}
+              src={withBasePath(project.images[index])} 
               custom={direction}
               variants={variants}
               initial="enter"
