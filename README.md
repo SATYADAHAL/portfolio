@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Project
 
-## Getting Started
+This is a Next.js static portfolio website configured for deployment on GitHub Pages with a custom domain (`satyadahal.com.np`).
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v16+ recommended)  
+- npm
+- GitHub repository with GitHub Pages enabled  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup & Run Locally
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/satyadahal/portfolio.git
+   cd portfolio
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. Run the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Open [http://localhost:3000](http://localhost:3000) to see your app.
+
+---
+
+## Build & Deploy to GitHub Pages
+
+The project is configured to export a static build in the `out` folder and deploy it to the `gh-pages` branch of the repository.
+
+1. Build and deploy with the following command:
+
+   ```bash
+   npm run deploy
+   ```
+
+2. This will:
+
+   - Run `next build` (which outputs static files to `out/`)  
+   - Create a `CNAME` file with your custom domain `satyadahal.com.np`  
+   - Create a `.nojekyll` file to avoid GitHub Pages ignoring folders starting with `_`  
+   - Deploy the contents of the `out/` folder to the `gh-pages` branch  
+
+---
+
+## Notes
+
+- Make sure your DNS is configured to point your custom domain `satyadahal.com.np` to GitHub Pages (see GitHub Pages docs for setting A and CNAME records).  
+- The `next.config.js` is configured without any `basePath` or `assetPrefix` to work correctly with your custom domain.
+
+---
+
+## Scripts
+
+| Command        | Description                          |
+| -------------- | ---------------------------------- |
+| `npm run dev`  | Start Next.js in development mode  |
+| `npm run build`| Build static export (`out/` folder)|
+| `npm run deploy`| Build and deploy to GitHub Pages   |
+
+---
+
+Feel free to customize and expand this README for your needs!
