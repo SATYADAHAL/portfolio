@@ -5,7 +5,7 @@
   "homepage": "https://satyadahal.github.io/portfolio",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "deploy": "next build && echo 'satyadahal.com.np' > out/CNAME && echo > out/.nojekyll && gh-pages -d out -b gh-pages",
     "start": "next start",
     "lint": "next lint"
