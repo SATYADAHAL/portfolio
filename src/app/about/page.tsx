@@ -13,15 +13,21 @@ import {
   SiArchlinux,
   SiFedora,
   SiKalilinux,
-  SiEac,
-  SiCoda,
   SiGnometerminal,
   SiFlask,
   SiFastapi,
   SiDjango,
   SiNumpy,
-  SiDgraph,
 } from 'react-icons/si';
+import { SiGnuemacs } from 'react-icons/si';
+import { SiNvidia } from 'react-icons/si';
+import { SiScrapy } from 'react-icons/si';
+import { TbApi } from 'react-icons/tb';
+import { FaServer } from 'react-icons/fa';
+import { FaNetworkWired } from 'react-icons/fa6';
+import { AiOutlineLineChart } from 'react-icons/ai';
+import { VscServerProcess } from 'react-icons/vsc';
+import { SiLlvm } from 'react-icons/si';
 
 const skillIcons: Record<string, IconType> = {
   Linux: FaLinux,
@@ -31,9 +37,9 @@ const skillIcons: Record<string, IconType> = {
   Manjaro: SiArchlinux,
   'Arch Linux': SiArchlinux,
   Fedora: SiFedora,
-  Emacs: SiEac,
-  Elisp: SiEac,
-  CUDA: SiCoda,
+  Emacs: SiGnuemacs,
+  Elisp: SiGnuemacs,
+  CUDA: SiNvidia,
   Docker: FaDocker,
   Python: FaPython,
   SSH: SiGnometerminal,
@@ -41,7 +47,13 @@ const skillIcons: Record<string, IconType> = {
   FastAPI: SiFastapi,
   Django: SiDjango,
   NumPy: SiNumpy,
-  Matplotlib: SiDgraph,
+  Matplotlib: AiOutlineLineChart,
+  'Web Scraping': SiScrapy,
+  'Web APIs': TbApi,
+  'Server Setup': FaServer,
+  Networking: FaNetworkWired,
+  'LSP Servers': VscServerProcess,
+  Clangd: SiLlvm,
 };
 
 const character = {
@@ -135,14 +147,13 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({ section, index }) => {
     >
       {/* Push pin SVG */}
       <div className="absolute top-5 -ml-1 w-10 h-10 z-20 md:left-1/2 md:-translate-x-1/2">
-<Image
-  src={withBasePath('/ping2.png')}
-  alt="Push pin"
-  fill
-  className="object-contain w-full h-full drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]"
-  style={{ transform: 'translateY(-2px)' }}
-/>
-
+        <Image
+          src={withBasePath('/ping2.png')}
+          alt="Push pin"
+          fill
+          className="object-contain w-full h-full drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]"
+          style={{ transform: 'translateY(-2px)' }}
+        />
       </div>
 
       <motion.div
