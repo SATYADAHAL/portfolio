@@ -1,0 +1,505 @@
+# Satya Prakash Dahal: full site text
+
+> Every page of https://satyadahal.com.np/ as plain Markdown, for AI tools and other readers that do not run JavaScript. The short version is /llms.txt.
+
+---
+
+Source: https://satyadahal.com.np/
+Title: Satya Prakash Dahal — Software engineer, data & scraping
+
+# Satya Prakash Dahal · Pokhara, Nepal
+
+Software engineer building web scrapers, data pipelines and MCP tooling for AI agents. Outside work I contribute to open source, with fixes and features merged upstream.
+
+[Get in touch](#contact) [Read my writing](https://satyadahal.com.np/writing/)
+
+**Now:**
+
+Software Engineer at Jyaba Since December 2025
+
+**In production:**
+
+110+ Scrapy spiders Retail, jobs, real estate, finance
+
+**Upstream:**
+
+Merged into KDE Plasma Bikram Sambat calendar, 6.8
+
+## Experience
+
+### Software Engineer · Jyaba
+
+Dec 2025 — now Pokhara, Nepal
+
+I work on the data side: getting information off the web reliably and into a shape other systems — and AI agents — can use.
+
+- Write production Scrapy spiders day to day: **110+ so far**, across retail, reviews, jobs, real estate, finance and research sites. API-first, with a browser only when needed.
+- Built an agent pipeline that turns **a URL into a working Scrapy spider**.
+- Wrote **MCP servers** and extended Chrome DevTools MCP for AI agents.
+- Built a layered data pipeline on S3 and PostgreSQL, with LLM extraction.
+- Rebuilt contact extraction for a legal-PDF service, with OCR for scanned pages.
+- Build and package a **patched Chromium** for Scrapy and Playwright.
+
+Technologies: Python, Scrapy, Playwright, MCP, Chromium, PostgreSQL, AWS S3, Jenkins, FastAPI, Docker
+
+### Freelance web scraper · Omnimart
+
+Dec 2021 — Feb 2022 Remote
+
+My first paid scraping job: stocking a Belgian online grocery store with products from three supermarket chains.
+
+- Scraped about 20,000 products, with prices, images, descriptions and categories, into the store’s import format.
+- Matched scraped items to the store’s existing catalogue and set prices from the source plus a fixed margin.
+
+Technologies: Python, Requests, BeautifulSoup
+
+## Open source
+
+Merged KDE Plasma 6.8 · 1 Sep 2026
+
+### Bikram Sambat support for Plasma’s alternate calendar
+
+Plasma’s clock could show Chinese, Hebrew, Islamic and Ethiopian dates — but not the official calendar of Nepal. I wrote the **C++/Qt provider that adds it**: a century of government-published month lengths (BS 2000–2099) as compile-time tables, a fallback for dates outside them, and Devanagari labels.
+
+Reviewed and merged by Nate Graham. It closes a [feature request](https://bugs.kde.org/show_bug.cgi?id=500298) open since February 2025 and ships to every Plasma 6.8 user.
+
+[Read the write-up](https://satyadahal.com.np/writing/bikram-sambat-in-kde-plasma.html) [Merge request !1113](https://invent.kde.org/plasma/kdeplasma-addons/-/merge_requests/1113)
+
+Merged on
+
+१६ भदौ, २०८३
+
+16 Bhadra 2083 · 1 September 2026
+
+Converted with the same table that ships in Plasma.
+
+[raphamorim/rio](https://github.com/raphamorim/rio) [★ 7.6k](https://github.com/raphamorim/rio)
+
+### [Fix a PTY crash on Kitty keyboard-mode pops](https://github.com/raphamorim/rio/pull/1386)
+
+Found while testing termrex: an extra pop on an empty keyboard-mode stack crashed the PTY reader thread. Guarded the pops and reset the mode state.
+
+Merged Jan 2026 [#1386](https://github.com/raphamorim/rio/pull/1386)
+
+[emacs-dashboard/dashboard](https://github.com/emacs-dashboard/dashboard) [★ 1.5k](https://github.com/emacs-dashboard/dashboard)
+
+### [Play animated WebP banners](https://github.com/emacs-dashboard/dashboard/pull/502)
+
+Animated WebP banners stayed still. Added multi-frame image detection so they animate like GIFs.
+
+Merged Mar 2024 [#502](https://github.com/emacs-dashboard/dashboard/pull/502)
+
+[LeandroBarone/python-ascii_magic](https://github.com/LeandroBarone/python-ascii_magic) [★ 179](https://github.com/LeandroBarone/python-ascii_magic)
+
+### [1.68× smaller terminal output](https://github.com/LeandroBarone/python-ascii_magic/pull/14)
+
+Stopped emitting a colour escape code for every character when its neighbours share the colour.
+
+Merged Feb 2024 [#14](https://github.com/LeandroBarone/python-ascii_magic/pull/14)
+
+[0kzh/mac-inline-battery](https://github.com/0kzh/mac-inline-battery) [★ 12](https://github.com/0kzh/mac-inline-battery)
+
+### [Show 0% on an empty battery](https://github.com/0kzh/mac-inline-battery/pull/7)
+
+The KDE widget fell back to “100%” whenever the charge was zero. Fixed the boundary check.
+
+Merged Sep 2022 [#7](https://github.com/0kzh/mac-inline-battery/pull/7)
+
+## Projects
+
+Things I’ve built, from face matching to terminal games.
+
+(Image: Create Event form with a dialog showing the new event's code and a QR code for guests.)
+
+(Image: Add your face screen with a Start Camera button.)
+
+(Image: Picatu home page: Find your photos in a snap.)
+
+(Image: Supported events: live shows, sports, weddings and festivals.)
+
+### Picatu
+
+Find yourself in event photos from a single selfie. A team project where I built the face-recognition service.
+
+- A team of three. My part was the recognition service: a Flask API with Celery workers on Redis, called by the team’s Node.js gateway.
+- Uploaded event photos are encoded by a multithreaded C++17 program I wrote on Dlib’s ResNet face model, built against CUDA. Threads share a pool of model instances, and each photo gets a 128-number face descriptor.
+- A guest’s selfie is encoded once and compared against every photo in the event. A distance of 0.6 or less counts as a match.
+
+Technologies: Python, Flask, C++, Dlib, Celery
+
+(Image: termrex mid-game: a pixel dinosaur running toward cacti, with the score at the top right.)
+
+(Image: termrex game-over screen with a restart icon and high score.)
+
+(Image: termrex title screen with a how-to-play box.)
+
+### [termrex](https://github.com/SATYADAHAL/termrex)
+
+[★ 49](https://github.com/SATYADAHAL/termrex)
+
+The Chrome Dino runner for the terminal, in C++17 with no libraries: just termios and ANSI escape codes.
+
+- Runs in any POSIX terminal, down to a bare Linux virtual console.
+- Asks the terminal if it speaks the Kitty keyboard protocol. If it does, ducking uses real key-release events; if not, a tunable key-repeat timer.
+- Sprites are drawn as ASCII art and compiled by a small Python script into ANSI cursor-skip strings and collision masks, so hits are exact to the character.
+- Delta-time game loop with rising speed. Pauses with a warning when the window gets too small, and always restores the terminal on exit.
+- Unicode by default, with an ASCII-only mode for consoles without it.
+- Packaged as an RPM from a spec file in the repo and published on Fedora COPR, so it installs with `dnf install termrex`. Elsewhere it builds with plain `make` on Linux, macOS and BSD.
+
+Technologies: C++, Linux, Fedora
+
+[Source](https://github.com/SATYADAHAL/termrex) [Fedora COPR](https://copr.fedorainfracloud.org/coprs/satya-pr-dahal/termrex/)
+
+(Image: Nepali Calendar widget in light and dark themes, showing Poush 2082 in Devanagari with Gregorian dates beneath each day.)
+
+### [Nepali Calendar](https://store.kde.org/p/2303034/)
+
+[★ 17](https://github.com/SATYADAHAL/nepali-calendar)
+
+The Plasma widget that came before the upstream work, published on the KDE Store. Month picker, holidays, and tithi calculated from sun and moon longitudes, with no network calls.
+
+Technologies: QML, JavaScript, KDE Plasma
+
+[Source](https://github.com/SATYADAHAL/nepali-calendar) [KDE Store](https://store.kde.org/p/2303034/)
+
+(Image: Albert launcher: typing KDE lists System Settings pages; searching kcm_s finds modules by their internal name.)
+
+### [Albert KCM plugin](https://github.com/SATYADAHAL/albert-plugin-kde-kcm)
+
+Opens any KDE System Settings page straight from the Albert launcher, including the hidden ones Albert skips by default.
+
+- Finds settings modules through the Desktop Entry spec in the standard application directories.
+- Filters them by session type, so X11-only or Wayland-only pages don’t show up in the wrong one.
+- Type `KDE` to list them, or search globally; it can also match a module’s command, like `kcm_s`.
+
+Technologies: C++, Qt, KDE Plasma
+
+[Source](https://github.com/SATYADAHAL/albert-plugin-kde-kcm)
+
+(Image: termiType in a dark terminal: a timer and a stream of words, typed ones in green.)
+
+(Image: termiType in a light terminal with a mistyped word highlighted in red.)
+
+(Image: Results: 100.8 words per minute, 96% accuracy, 98% confidence.)
+
+### [termiType](https://github.com/SATYADAHAL/termiType)
+
+A typing test for the terminal: live colour feedback, WPM, raw speed, accuracy, and a confidence score that tracks backspaces.
+
+Technologies: C++, Linux
+
+[Source](https://github.com/SATYADAHAL/termiType)
+
+(Image: TriNetra's mobile app: live camera tiles for Front Door, Living Room and Garage; a history of recorded clips; and the login screen.)
+
+### TriNetra
+
+Violence detection for home CCTV: an AI service watches live camera feeds, records the moment something happens and alerts the owner’s phone.
+
+- A team of three. I built the backend: FastAPI services for auth, cameras and AI behind an API gateway, on PostgreSQL, all run with Docker Compose.
+- The AI service reads each camera’s RTSP stream with OpenCV and classifies sequences of frames with a MobileNet + BiLSTM model in TensorFlow.
+- Once violence holds for 30 frames it saves the clip, riding out short gaps so one incident stays one video, then stores a notification and shares the clip with the app.
+
+Technologies: Python, FastAPI, TensorFlow, OpenCV, PostgreSQL, Docker
+
+## Toolbox
+
+### Scraping & automation
+
+Technologies: Scrapy, Playwright, Selenium, Zendriver, BeautifulSoup, HTTPX
+
+### Data & backend
+
+Technologies: Python, FastAPI, REST, WebSockets, SQLAlchemy, PostgreSQL, MySQL
+
+### AI agents
+
+Technologies: MCP servers, Agent browser automation
+
+### Systems & desktop
+
+Technologies: C++, Chromium (source builds), Qt, KDE Frameworks, JavaScript, Emacs Lisp
+
+### Infrastructure
+
+Technologies: Linux, Docker, Jenkins, AWS S3, Git, Bash, CMake
+
+## Community
+
+### Founding member, GCES Linux Community
+
+Gandaki College
+
+Started a student community to get more people onto Linux and contributing to open source.
+
+### Mentor, Linux Training Program
+
+Dec 2023 — Jan 2024 National Innovation Centre
+
+Mentored the two-week program at the centre’s ICT Lab in Pokhara: Linux fundamentals, the terminal and basic system administration.
+
+### 1st runner-up, 9th GCES IT Expo
+
+2023 Gandaki College
+
+KeySecure — a tool that protects Linux machines from keyloggers.
+
+## Education
+
+### Bachelor of Engineering, Software Engineering, Gandaki College of Engineering and Science
+
+2020 — 2025 Pokhara, Nepal
+
+Coursework in data structures and algorithms, databases, operating systems and machine learning.
+
+## Have a project in mind?
+
+Scraping, data pipelines or agent tooling: tell me what you’re working on.
+
+[dahal.satya321@gmail.com](mailto:dahal.satya321@gmail.com) [LinkedIn](https://www.linkedin.com/in/satya-prakash-dahal) [GitHub](https://github.com/SATYADAHAL)
+
+---
+
+Source: https://satyadahal.com.np/writing/
+Title: Writing — Satya Prakash Dahal
+
+# Writing
+
+Notes on open source, scraping and the tools I build.
+
+21 Oct 2026
+
+## [Building the Chrome Dino game for the terminal](https://satyadahal.com.np/writing/termrex.html)
+
+An endless runner in C++17 with no game engine and no terminal library: raw mode, escape codes and the Kitty keyboard protocol.
+
+7 min read
+
+19 Oct 2026
+
+## [Bringing the Nepali calendar to KDE Plasma](https://satyadahal.com.np/writing/bikram-sambat-in-kde-plasma.html)
+
+Why Bikram Sambat can’t be computed, and how a century of lookup tables got into Plasma 6.8.
+
+4 min read
+
+---
+
+Source: https://satyadahal.com.np/writing/termrex.html
+Title: Building the Chrome Dino game for the terminal — Satya Prakash Dahal
+
+[← All writing](https://satyadahal.com.np/writing/)
+
+C++17 · Linux, macOS, BSD · [termrex on GitHub](https://github.com/SATYADAHAL/termrex) · written 21 October 2026
+
+# Building the Chrome Dino game for the terminal
+
+termrex is Chrome’s offline dinosaur, rebuilt to run in a terminal. I made it for fun and to learn: could a small real-time game work with no game engine and no terminal library, just C++ and the escape codes every terminal already understands? It turns out it can, and the hardest part wasn’t the drawing.
+
+17 seconds of termrex in a terminal.
+
+## The rules I set
+
+No ncurses, no SDL, no game engine. Only the C++17 standard library, POSIX calls and ANSI escape codes, and it had to run anywhere a terminal does, including the bare Linux console with no desktop at all. That left about 4,000 lines of C++ to write, a quarter of them sprites.
+
+## Taking over the terminal
+
+A terminal normally waits for a whole line before a program sees any input, and echoes every key you press. A game needs the opposite: each key the moment it’s pressed, nothing printed, and reads that never block the frame. That’s raw mode, set with `termios`:
+
+```
+struct termios raw = original;
+raw.c_lflag &= ~(ICANON | ECHO);  // keys one at a time, not echoed
+raw.c_cc[VMIN] = 0;               // read() returns at once,
+raw.c_cc[VTIME] = 0;              // even with nothing to read
+tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
+```
+
+On top of that, the game switches to the terminal’s alternate screen (`\x1b[?1049h`), the same trick `vim` and `less` use, so your shell history is untouched when you quit, and hides the cursor. Everything after that is moving the cursor and printing characters: `\x1b[row;colH` jumps to a cell, and whatever is printed there is the picture.
+
+## Sprites made of block characters
+
+The dinosaur is drawn with Unicode block elements — `▟ █ ▙ ▜ ▀ ▄` — so each character cell holds a couple of “pixels”. The simple way to print a sprite is line by line, spaces included. But spaces aren’t transparent: they paint over whatever is behind them, so a jumping dinosaur would cut holes in the ground and the cacti.
+
+So the sprites never print spaces. A small Python script converts each drawing, replacing every run of spaces with a cursor move over those cells, and ends the line with a move back to the start of the next row:
+
+```
+// Row 0 of the running dinosaur: skip 8 cells, draw 6, return.
+"\x1b[8C▟■███▙\x1b[14D\x1b[1B",
+"\x1b[8C███▄▄\x1b[13D\x1b[1B",
+"▙\x1b[5C▄▟█▙▄\x1b[11D\x1b[1B",
+```
+
+The cursor hops over the gaps, so whatever was already on screen shows through. It’s transparency, done with the cursor. The same script also writes each sprite’s collision mask: a grid of 1s where the sprite has ink and 0s where it doesn’t.
+
+## Collisions that feel fair
+
+Chrome’s dinosaur only dies when it actually touches a cactus, not when their bounding boxes overlap. termrex does the same in two steps. First a cheap rectangle test; if the boxes overlap, it walks just the overlapping cells and checks both masks:
+
+```
+for (int r = rowStart; r <= rowEnd; ++r)
+  for (int c = colStart; c <= colEnd; ++c)
+    if (a.mask[r - a.top][c - a.left] && b.mask[r - b.top][c - b.left])
+      return true;   // real ink on both sides
+return false;
+```
+
+Jumping close over a cactus’s arm and clearing it by a cell feels right, because it is.
+
+## The game loop
+
+The loop runs at a fixed 45 frames a second. Each frame it reads input, updates everything by the time that actually passed (`dt`), checks for a hit, and draws:
+
+```
+dt = seconds(now - last);
+if (dt < FRAME_TIME) { sleep(FRAME_TIME - dt); continue; }
+
+takeInput();
+update();              // physics, obstacles, ground, score, speed
+if (hit()) break;
+draw();
+last = now;
+```
+
+Because movement is scaled by `dt`, the game runs at the same speed on a slow terminal as on a fast one. The world starts at 90 columns a second and speeds up to 220. The ground is stitched from random chunks so it never visibly repeats, cacti come at random gaps, and pterodactyls (at two heights) only start once the game has sped up, which is roughly when Chrome introduces them too. The best score is saved to `~/.termrex_highscore`.
+
+## The hard part: letting go of a key
+
+Ducking under a pterodactyl means holding ↓ and letting go. That turned out to be the most interesting problem in the whole game, because a traditional terminal never tells a program that a key was released. It only sends presses, plus repeats while you hold one down.
+
+The fallback works on every terminal: treat repeats as “still held”, and stand the dinosaur up when they stop arriving. How long to wait depends on your keyboard’s repeat rate, so it’s a flag, `--keyrepeat`, defaulting to 200 ms. It works, but it always lags a little behind your finger.
+
+Newer terminals such as kitty, foot, Ghostty and Rio support the [Kitty keyboard protocol](https://sw.kovidgoyal.net/kitty/keyboard-protocol/), which can report press, repeat and release. A program turns it on by pushing a mode onto the terminal’s keyboard-mode stack, and pops it on exit:
+
+```
+printf("\x1b[>2u");   // push: report event types (press, repeat, release)
+...
+printf("\x1b[<u");    // pop it again when the game exits
+```
+
+With that on, letting go of ↓ arrives as `\x1b[1;1:3B`: the arrow key (`B`) with event type 3, “released”. The dinosaur stands up the instant you lift your finger.
+
+The game still has to know whether the terminal supports the protocol before relying on it. It sends two questions at once: “what keyboard mode are you in?” (`\x1b[?u`) and the ancient “what kind of terminal are you?” (`\x1b[c`), which every terminal answers. If the first answer comes back before the second, the protocol is supported. If only the second does, it isn’t, and the game uses the key-repeat fallback. Either way it knows within a tenth of a second.
+
+## Resizing and the bare console
+
+Terminals can be resized mid-game. The kernel sends `SIGWINCH`; termrex re-reads the size, pauses with a “make the window bigger” notice if the play area no longer fits, and otherwise re-centres the frame and moves every sprite with it.
+
+The Linux virtual console (the text screen you get with Ctrl+Alt+F3) has no glyphs for most of these block characters, so termrex ships a second set of sprites in plain ASCII. `--ascii-only` switches to it, and the dinosaur becomes a slightly lumpier, very 1980s version of itself.
+
+## Shipping it
+
+It builds with a plain Makefile into a single binary with no dependencies. For Fedora I wrote an RPM spec and published it on COPR, so installing it is two commands:
+
+```
+sudo dnf copr enable satya-pr-dahal/termrex
+sudo dnf install termrex
+```
+
+## The bug that closed my terminal
+
+One bug is worth telling. My exit code popped the keyboard mode more times than it had pushed it. Most terminals quietly ignore a pop on an empty stack, so I never noticed — until I played in Rio, quit, and the whole terminal window vanished.
+
+The bug was mine, and I fixed it in termrex the same day (v1.0.2). But a program misbehaving shouldn’t be able to take the terminal down with it, so I also sent Rio a three-line guard against popping an empty stack; it was [merged](https://github.com/raphamorim/rio/pull/1386) in January 2026.
+
+## What I took away
+
+- A terminal is a perfectly good game screen. Escape codes are a small, old, surprisingly complete drawing API.
+- Transparency doesn’t need an alpha channel: skipping a cell is enough.
+- Input is harder than output. Terminals were built for typing, not for holding keys.
+- Testing in more than one terminal finds bugs in your code, and sometimes in theirs.
+
+The code is on [GitHub](https://github.com/SATYADAHAL/termrex) . If you’re on Fedora, `dnf install termrex` and see how far you get.
+
+---
+
+Source: https://satyadahal.com.np/writing/bikram-sambat-in-kde-plasma.html
+Title: Bringing the Nepali calendar to KDE Plasma 6.8 — Satya Prakash Dahal
+
+[← All writing](https://satyadahal.com.np/writing/)
+
+KDE Plasma 6.8 · kdeplasma-addons [!1113](https://invent.kde.org/plasma/kdeplasma-addons/-/merge_requests/1113) · merged 1 September 2026 · written 19 October 2026
+
+# Bringing the Nepali calendar to KDE Plasma
+
+Plasma’s clock can show a second calendar under every date — Chinese, Hebrew, Islamic, Indian, Ethiopian. Starting with 6.8 it can also show Bikram Sambat, the official calendar of Nepal. This is how that works, and why it’s mostly a data problem.
+
+## A calendar you can’t compute
+
+Gregorian dates follow rules: 30 days hath September, leap years every four years with a couple of exceptions. You can write the whole thing as arithmetic.
+
+Bikram Sambat doesn’t work like that. Its twelve months run anywhere from 29 to 32 days, and the lengths change from year to year. They come from astronomical calculation and are fixed in the official calendar ( पात्रो ) published in Nepal each year. There is no formula that reproduces them — the only reliable source is the published table.
+
+So the core of the feature isn’t an algorithm. It’s getting trustworthy data into the codebase in a form that’s cheap to query.
+
+## A century in two arrays
+
+I took the day counts for every month from BS 2000 to BS 2099 — roughly 1943 to 2043 — from the official calendar published by Kathmandu Metropolitan City, along with the Gregorian date each year begins. In C++ that becomes two `constexpr` arrays:
+
+```
+// Days in each month, BS 2000–2099.
+constexpr std::array<std::array<quint8, 12>, 100> s_daysPerMonth{{
+    {30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31}, // BS 2000
+    {31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30}, // BS 2001
+    ...
+}};
+
+// Days from Baishakh 1, BS 2000 (14 April 1943) to Baishakh 1 of each year.
+constexpr std::array<int, 100> s_yearStartDays{0, 365, 730, 1095, 1461, ...};
+```
+
+Each month length fits in a byte, so the whole century is about 1.6 KB, baked into the binary. No data files to install, nothing to parse at startup, no network.
+
+## Converting a date
+
+Given a Gregorian date, count the days since the epoch, find the year whose start is the last one not after that count, then walk through that year’s months:
+
+```
+const qint64 days = s_epoch.daysTo(date);
+
+std::size_t i = 0;
+while (i + 1 < s_yearCount && days >= s_yearStartDays[i + 1])
+    ++i;
+
+int offset = days - s_yearStartDays[i];
+int month = 0;
+while (month < 12 && offset >= s_daysPerMonth[i][month])
+    offset -= s_daysPerMonth[i][month++];
+
+return {2000 + int(i), month + 1, offset + 1};
+```
+
+A linear scan over a hundred entries is plenty fast for a calendar that renders a month at a time, and it keeps the code obvious to review.
+
+Try it — Gregorian date १६ भदौ, २०८३ 16 Bhadra 2083 · 1 September 2026
+
+That converter is the same logic and the same table, ported to JavaScript and running in your browser.
+
+## Dates the table doesn’t cover
+
+A calendar widget lets you scroll anywhere, including years before 1943 or after 2043. Showing nothing there would look broken; silently showing a wrong date would be worse.
+
+Outside the table, the provider falls back to the mean month length derived from the table itself and appends `(approx.)` to the label. Users get a sensible answer, and they’re told it’s an estimate.
+
+## Speaking the language
+
+The label under each date uses Devanagari month names and Nepali digits — ७ पुष, २०८२ rather than “7 Poush 2082”. The format string goes through KDE’s i18n system, so translators can still reorder the parts for their language.
+
+## Fitting into Plasma
+
+The alternate calendar plugin already had a clean extension point: each calendar system is a provider class. Adding Bikram Sambat meant
+
+1. a new `BikramSambat` entry in the calendar-system enum and its display name,
+2. a `NepaliCalendarProvider` subclass of `AbstractCalendarProvider` that implements `fromGregorian()` and `subLabel()`,
+3. one line in the plugin to construct it, and one in CMake.
+
+Five files, about three hundred lines — most of them the table. Because it doesn’t depend on ICU, it’s available on every Plasma build, not only ones compiled with ICU support.
+
+## From widget to upstream
+
+This started as a standalone [Nepali Calendar widget](https://store.kde.org/p/2303034/) on the KDE Store. A widget helps the people who find and install it. Upstream, it’s simply there: anyone in Nepal who installs Plasma can turn it on in the Digital Clock’s calendar settings.
+
+(Image: Nepali Calendar widget showing the month of Poush 2082 in Devanagari.)
+
+The standalone widget that came first.
+
+The merge request went through four commits and review before Nate Graham merged it on 1 September 2026. It closes [bug 500298](https://bugs.kde.org/show_bug.cgi?id=500298), a feature request open since February 2025, and ships in Plasma 6.8.
