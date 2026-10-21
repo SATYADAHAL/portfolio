@@ -1,0 +1,54 @@
+# Satya Prakash Dahal
+
+> Software engineer in Pokhara, Nepal, at Jyaba since December 2025. Builds web scrapers, data pipelines and MCP tooling for AI agents. Contributes to open source: wrote the Bikram Sambat (Nepali) calendar provider merged into KDE Plasma 6.8.
+
+## Pages
+
+- [Home](https://satyadahal.com.np/): experience, open source, projects, toolbox, community, education and contact
+- [Writing](https://satyadahal.com.np/writing/): notes on open source, scraping and the tools I build
+- [Building the Chrome Dino game for the terminal](https://satyadahal.com.np/writing/termrex.html): how termrex works, with no game engine or terminal library (raw mode, escape codes, the Kitty keyboard protocol)
+- [Bringing the Nepali calendar to KDE Plasma](https://satyadahal.com.np/writing/bikram-sambat-in-kde-plasma.html): how Bikram Sambat support landed in Plasma's alternate calendar plugin (merge request !1113)
+- [Full site text](https://satyadahal.com.np/llms-full.txt): every page of this site as one Markdown file
+
+## Work
+
+Software Engineer at Jyaba, Pokhara (December 2025 to now):
+
+- Writes production Scrapy spiders day to day: 110+ so far, across retail, reviews, jobs, real estate, finance and research sites; API-first, with a browser only when needed
+- Built an agent pipeline that turns a URL into a working Scrapy spider
+- Wrote MCP servers and extended Chrome DevTools MCP for AI agents
+- Built a layered data pipeline on S3 and PostgreSQL, with LLM extraction
+- Rebuilt contact extraction for a legal-PDF service, with OCR for scanned pages
+- Builds and packages a patched Chromium for Scrapy and Playwright
+
+Earlier: freelance web scraper for Omnimart, a Belgian online grocery store (December 2021 to February 2022, remote).
+
+## Open source (merged)
+
+- KDE Plasma 6.8: Bikram Sambat calendar provider, C++/Qt (https://invent.kde.org/plasma/kdeplasma-addons/-/merge_requests/1113)
+- rio terminal: fix for a PTY reader crash (https://github.com/raphamorim/rio/pull/1386)
+- emacs-dashboard: animated WebP banners (https://github.com/emacs-dashboard/dashboard/pull/502)
+- python-ascii_magic: 1.68× smaller output (https://github.com/LeandroBarone/python-ascii_magic/pull/14)
+- mac-inline-battery: 0% battery fix (https://github.com/0kzh/mac-inline-battery/pull/7)
+
+## Projects
+
+- termrex: Chrome Dino runner for the terminal in C++17, packaged on Fedora COPR (https://github.com/SATYADAHAL/termrex)
+- Nepali Calendar: KDE Plasma widget on the KDE Store (https://github.com/SATYADAHAL/nepali-calendar)
+- Albert KCM plugin: open KDE System Settings pages from the Albert launcher (https://github.com/SATYADAHAL/albert-plugin-kde-kcm)
+- termiType: terminal typing test (https://github.com/SATYADAHAL/termiType)
+
+## Skills
+
+- Scraping and automation: Scrapy, Playwright, Selenium, Zendriver, BeautifulSoup, HTTPX
+- Data and backend: Python, FastAPI, REST, WebSockets, SQLAlchemy, PostgreSQL, MySQL
+- AI agents: MCP servers, agent browser automation
+- Systems and desktop: C++, Chromium (source builds), Qt, KDE Frameworks, JavaScript, Emacs Lisp
+- Infrastructure: Linux, Docker, Jenkins, AWS S3, Git, Bash, CMake
+
+## Contact
+
+- Email: dahal.satya321@gmail.com
+- GitHub: https://github.com/SATYADAHAL
+- LinkedIn: https://www.linkedin.com/in/satya-prakash-dahal
+- Contact form: https://satyadahal.com.np/#contact

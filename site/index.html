@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Satya Prakash Dahal — Software engineer, data &amp; scraping</title>
+  <meta name="description" content="Software engineer in Pokhara, Nepal. I build web scrapers, data pipelines and MCP tooling for AI agents, and contribute to open source, with fixes and features merged upstream, including KDE Plasma.">
+  <link rel="canonical" href="https://satyadahal.com.np/">
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://satyadahal.com.np/">
+  <meta property="og:title" content="Satya Prakash Dahal — Software engineer, data & scraping">
+  <meta property="og:description" content="Software engineer building web scrapers, data pipelines and MCP tooling for AI agents. Outside work I contribute to open source, with fixes and features merged upstream.">
+  <meta property="og:image" content="https://satyadahal.com.np/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Satya Prakash Dahal, Pokhara, Nepal: Software engineer building web scrapers, data pipelines and MCP tooling for AI agents.">
+  <meta property="og:site_name" content="Satya Prakash Dahal">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Satya Prakash Dahal — Software engineer, data &amp; scraping">
+  <meta name="twitter:description" content="Software engineer building web scrapers, data pipelines and MCP tooling for AI agents. Outside work I contribute to open source.">
+  <meta name="twitter:image" content="https://satyadahal.com.np/og.png">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <script>
+    document.documentElement.classList.add('js');
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch {}
+    // Intro animations (logo, hero swash) play when you arrive on the site or reload,
+    // not when moving between its pages. Set here, before first paint.
+    try {
+      const reloaded = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+      const seen = sessionStorage.getItem('intro-played');
+      sessionStorage.setItem('intro-played', '1');
+      if (reloaded || !seen) document.documentElement.classList.add('play-intro');
+    } catch { document.documentElement.classList.add('play-intro'); }
+  </script>
+  <script type="module" src="/assets/js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://satyadahal.com.np/#person",
+        "name": "Satya Prakash Dahal",
+        "url": "https://satyadahal.com.np/",
+        "image": "https://satyadahal.com.np/og.png",
+        "jobTitle": "Software Engineer",
+        "description": "Software engineer in Pokhara, Nepal who builds web scrapers, data pipelines and MCP tooling for AI agents, and contributes to open source, including the Bikram Sambat calendar in KDE Plasma 6.8.",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Jyaba"
+        },
+        "homeLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pokhara",
+            "addressCountry": "NP"
+          }
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Gandaki College of Engineering and Science",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pokhara",
+            "addressCountry": "NP"
+          }
+        },
+        "email": "mailto:dahal.satya321@gmail.com",
+        "knowsAbout": [
+          "Web scraping",
+          "Scrapy",
+          "Playwright",
+          "Data pipelines",
+          "Model Context Protocol",
+          "AI agents",
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "C++",
+          "Qt",
+          "KDE Plasma",
+          "Linux"
+        ],
+        "sameAs": [
+          "https://github.com/SATYADAHAL",
+          "https://www.linkedin.com/in/satya-prakash-dahal",
+          "https://invent.kde.org/satyadahal"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://satyadahal.com.np/#website",
+        "url": "https://satyadahal.com.np/",
+        "name": "Satya Prakash Dahal",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://satyadahal.com.np/#person"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="Satya Prakash Dahal, home">
+        <svg viewBox="0 0 897.403 425.464" aria-hidden="true" focusable="false"><g transform="matrix(1.2 0 0 1.2 -35.888 -6.663)"><path pathLength="1" d="M161.337 359.822c-20.922-2.487-40.91-7.128-55.5-12.888-46.922-18.523-72.608-53.003-75.825-101.787-.246-3.72-.045-7.01.446-7.314.491-.303 24.171-.522 52.622-.487 51.728.064 51.728.064 53.42 9.654 2.06 11.675 3.95 16.607 8.488 22.153 4.074 4.978 9.563 8.399 18.44 11.494 5.693 1.97 8.416 2.236 23.41 2.248 17.858.014 22.157-.773 30.306-5.549 1.82-1.066 3.737-1.938 4.261-1.938.595 0 .856 15.367.693 40.727-.26 40.727-.26 40.727-5.76 42.01-5.385 1.257-47.688 2.547-55 1.677zm70.667-8.08c-.367-.367-.667-23.335-.667-51.04 0-47.989-.092-50.555-1.952-54.2-7.079-13.875-20.325-20.052-62.548-29.166-15.26-3.294-48.511-13.445-61-18.623-30.019-12.445-46.18-26.169-55.895-47.464-4.942-10.832-6.605-19.827-6.604-35.713.002-30.256 9.44-54.41 28.989-74.192 16.515-16.712 45.815-30.732 73.01-34.935 8.476-1.31 73.66-1.045 75.75.308.97.628 1.25 11.09 1.25 46.719 0 48.76-.007 48.83-4.514 41.671-2.585-4.105-11.124-9.82-18.341-12.277-7.764-2.643-32.307-2.778-39.296-.217-12.67 4.643-18.286 12.32-16.393 22.41.926 4.936 8.335 12.153 16.544 16.113 7.784 3.755 15.28 6.309 28.583 9.736 5.454 1.405 11.492 2.997 13.417 3.538s7.55 1.895 12.5 3.007 11.25 2.642 14 3.397c2.75.756 7.925 2.162 11.5 3.126 47.299 12.75 74.689 30.783 88.49 58.262 8.351 16.626 9.89 32.813 9.294 97.789-.252 27.545-.784 50.608-1.18 51.25-.535.865-14.107 1.167-52.496 1.167-28.476 0-52.075-.3-52.441-.666zm220.789-.59c-.263-.684-.36-22.169-.216-47.744.26-46.5.26-46.5 3.26-46.77 4.555-.411 22.863-4.458 24-5.305.55-.41 2.693-1.062 4.761-1.449 2.069-.386 4.008-1.101 4.31-1.59.3-.487 1.23-.886 2.064-.886 2.531 0 20.848-9.534 28.076-14.615 13.97-9.817 26.87-24.843 34.461-40.135 1.707-3.437 3.486-6.25 3.954-6.25s.968 17.438 1.112 38.75c.262 38.75.262 38.75 18.762 39.1 38.518.727 56.187-3.742 71.562-18.101 8.426-7.869 13.14-15.434 17.467-28.028 9.342-27.189 7.166-61.458-5.304-83.554-7.287-12.912-22.007-24.692-36.913-29.542-11.123-3.619-19.76-4.537-43.871-4.667-21.44-.114-21.44-.114-22.106 23.714-.715 25.596-2.19 35.74-7.436 51.119-8.88 26.035-26.977 46.377-52.899 59.46-8.191 4.133-21.688 8.518-35.252 11.451-12.748 2.757-12.748 2.757-64.248 2.778s-51.5.02-52.23-10.98c-3.117-46.957-25.786-75.094-75.674-93.928-7.91-2.986-14.67-5.166-32.096-10.35-6.5-1.934-6.5-1.934-6.5-61.828s0-59.894 104.204-60.13c57.312-.13 104.9.03 105.75.357 1.364.523 1.546 6.088 1.546 47.32 0 25.7-.262 46.988-.583 47.31-.321.32-2.735-.498-5.364-1.818-7.467-3.75-15.894-4.385-59.177-4.456-40.376-.066-40.376-.066-40.64 33.479-.262 33.544-.262 33.544 42.55 33.544 23.548 0 43.242-.394 43.764-.877.523-.482 3.425-1.677 6.45-2.655 10.092-3.263 15.116-7.615 19.588-16.968 1.806-3.777 1.94-7.64 2.412-69.5.5-65.5.5-65.5 85.5-65.785 106.502-.358 117.462.291 142.422 8.442 29.04 9.482 53.758 28.29 69.657 53 4.029 6.261 12.645 23.225 13.889 27.343.415 1.375 1.332 3.85 2.038 5.5 13.062 30.541 15.92 95.487 5.83 132.5-17.135 62.864-58.263 99.255-124.837 110.46-16.318 2.747-41.09 3.484-117.783 3.506-59.506.016-75.886-.246-76.26-1.222z"/></g></svg>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a class="nav-optional" href="#experience" data-text="Experience">Experience</a>
+        <a href="#open-source" data-text="Open source">Open source</a>
+        <a href="#projects" data-text="Projects">Projects</a>
+        <a href="#contact" data-text="Contact">Contact</a>
+        <a class="nav-optional" href="/writing/" data-text="Writing">Writing</a>
+        <button class="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="i sun" aria-hidden="true"><use href="/assets/icons.svg#sun"/></svg>
+          <svg class="i moon" aria-hidden="true"><use href="/assets/icons.svg#moon"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="name">
+      <div class="hero-top">
+        <h1 class="hero-name" id="name">Satya Prakash Dahal <span>· Pokhara, Nepal</span></h1>
+      </div>
+      <p class="hero-lede">
+        <span class="swash">Software engineer<svg class="swash-mark" aria-hidden="true" focusable="false"><use href="/assets/swashes/arc-bristle.svg#stroke"/></svg></span> building web scrapers, data pipelines and MCP tooling for AI agents.
+        <em>Outside work I contribute to open source, with fixes and features merged upstream.</em>
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="#contact" data-jump>Get in touch</a>
+        <a class="hero-read" href="/writing/"><span>Read my writing</span><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+      </div>
+
+      <dl class="facts">
+        <div>
+          <dt class="is-live"><span class="live-dot" aria-hidden="true"></span>Now</dt>
+          <dd><svg class="i fact-icon" aria-hidden="true"><use href="/assets/icons.svg#briefcase"/></svg>Software Engineer at Jyaba<small>Since December 2025</small></dd>
+        </div>
+        <div>
+          <dt>In production</dt>
+          <dd><svg class="i fact-icon" aria-hidden="true"><use href="/assets/icons.svg#scrapy"/></svg>110+ Scrapy spiders<small>Retail, jobs, real estate, finance</small></dd>
+        </div>
+        <div>
+          <dt>Upstream</dt>
+          <dd><svg class="i fact-icon merge-icon" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg>Merged into KDE Plasma<small>Bikram Sambat calendar, 6.8</small></dd>
+        </div>
+      </dl>
+      <a class="scroll-hint" href="#experience" aria-label="Scroll to experience"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#chevron-down"/></svg></a>
+    </section>
+
+      <!-- ============ Experience ============ -->
+      <section class="section" id="experience" aria-labelledby="experience-h">
+        <div class="wrap reveal">
+        <header class="section-head"><h2 id="experience-h">Experience</h2></header>
+        <div>
+          <article class="role">
+            <div class="role-head">
+              <h3>Software Engineer <span>· Jyaba</span></h3>
+              <span class="when">Dec 2025 — now<span class="where">Pokhara, Nepal</span></span>
+            </div>
+            <div class="role-body">
+              <p>I work on the data side: getting information off the web reliably and into a shape other systems — and AI agents — can use.</p>
+              <ul class="ticks">
+                <li>Write production Scrapy spiders day to day: <strong>110+ so far</strong>, across retail, reviews, jobs, real estate, finance and research sites. API-first, with a browser only when needed.</li>
+                <li>Built an agent pipeline that turns <strong>a URL into a working Scrapy spider</strong>.</li>
+                <li>Wrote <strong>MCP servers</strong> and extended Chrome DevTools MCP for AI agents.</li>
+                <li>Built a layered data pipeline on S3 and PostgreSQL, with LLM extraction.</li>
+                <li>Rebuilt contact extraction for a legal-PDF service, with OCR for scanned pages.</li>
+                <li>Build and package a <strong>patched Chromium</strong> for Scrapy and Playwright.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tech" data-brand="python"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#python"/></svg>Python</li>
+                <li class="tech" data-brand="scrapy"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#scrapy"/></svg>Scrapy</li>
+                <li class="tech">Playwright</li>
+                <li class="tech">MCP</li>
+                <li class="tech" data-brand="chromium"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#chromium"/></svg>Chromium</li>
+                <li class="tech" data-brand="postgresql"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#postgresql"/></svg>PostgreSQL</li>
+                <li class="tech" data-brand="s3"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#s3"/></svg>AWS S3</li>
+                <li class="tech" data-brand="jenkins"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#jenkins"/></svg>Jenkins</li>
+                <li class="tech" data-brand="fastapi"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#fastapi"/></svg>FastAPI</li>
+                <li class="tech" data-brand="docker"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#docker"/></svg>Docker</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role-head">
+              <h3>Freelance web scraper <span>· Omnimart</span></h3>
+              <span class="when">Dec 2021 — Feb 2022<span class="where">Remote</span></span>
+            </div>
+            <div class="role-body">
+              <p>My first paid scraping job: stocking a Belgian online grocery store with products from three supermarket chains.</p>
+              <ul class="ticks">
+                <li>Scraped about 20,000 products, with prices, images, descriptions and categories, into the store’s import format.</li>
+                <li>Matched scraped items to the store’s existing catalogue and set prices from the source plus a fixed margin.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tech" data-brand="python"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#python"/></svg>Python</li>
+                <li class="tech">Requests</li>
+                <li class="tech">BeautifulSoup</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        </div>
+      </section>
+
+      <!-- ============ Open source ============ -->
+      <section class="section band" id="open-source" aria-labelledby="oss-h">
+        <div class="wrap reveal">
+        <header class="section-head"><h2 id="oss-h">Open source</h2></header>
+        <div>
+          <article class="feature">
+            <div>
+              <p class="feature-meta"><span class="pill merged"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg>Merged</span>&ensp;<svg class="i" aria-hidden="true"><use href="/assets/icons.svg#kde"/></svg> KDE Plasma 6.8 · 1 Sep 2026</p>
+              <h3>Bikram Sambat support for Plasma’s alternate calendar</h3>
+              <p>Plasma’s clock could show Chinese, Hebrew, Islamic and Ethiopian dates — but not the official calendar of Nepal. I wrote the <strong>C++/Qt provider that adds it</strong>: a century of government-published month lengths (BS 2000–2099) as compile-time tables, a fallback for dates outside them, and Devanagari labels.</p>
+              <p>Reviewed and merged by Nate Graham. It closes a <a href="https://bugs.kde.org/show_bug.cgi?id=500298">feature request</a> open since February 2025 and ships to every Plasma 6.8 user.</p>
+              <div class="feature-links">
+                <a class="button-outline" href="/writing/bikram-sambat-in-kde-plasma.html">Read the write-up<svg class="i" aria-hidden="true"><use href="/assets/icons.svg#arrow-right"/></svg></a>
+                <a class="arrow-out" href="https://invent.kde.org/plasma/kdeplasma-addons/-/merge_requests/1113">Merge request !1113</a>
+              </div>
+            </div>
+            <aside class="bs-today" aria-label="Today in Bikram Sambat">
+              <p class="kicker" data-bs-today-kicker>Merged on</p>
+              <p class="bs-date" data-bs-today lang="ne">१६ भदौ, २०८३</p>
+              <p class="bs-date-latin" data-bs-today-latin>16 Bhadra 2083 · 1 September 2026</p>
+              <p class="note">Converted with the same table that ships in Plasma.</p>
+            </aside>
+          </article>
+
+          <ul class="prs" aria-label="Merged pull requests">
+            <li class="pr">
+              <div class="pr-head">
+                <a class="pr-repo" href="https://github.com/raphamorim/rio">raphamorim/rio</a>
+                <a class="stars" href="https://github.com/raphamorim/rio" aria-label="raphamorim/rio on GitHub"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#star"/></svg><span data-stars="raphamorim/rio">7.6k</span></a>
+              </div>
+              <h3><a href="https://github.com/raphamorim/rio/pull/1386">Fix a PTY crash on Kitty keyboard-mode pops</a></h3>
+              <p>Found while testing termrex: an extra pop on an empty keyboard-mode stack crashed the PTY reader thread. Guarded the pops and reset the mode state.</p>
+              <p class="pr-foot"><span class="pr-merged"><span class="pill merged"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg>Merged</span>Jan 2026</span><a class="arrow-out" href="https://github.com/raphamorim/rio/pull/1386" aria-label="Pull request #1386">#1386</a></p>
+            </li>
+            <li class="pr">
+              <div class="pr-head">
+                <a class="pr-repo" href="https://github.com/emacs-dashboard/dashboard">emacs-dashboard/dashboard</a>
+                <a class="stars" href="https://github.com/emacs-dashboard/dashboard" aria-label="emacs-dashboard/dashboard on GitHub"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#star"/></svg><span data-stars="emacs-dashboard/dashboard">1.5k</span></a>
+              </div>
+              <h3><a href="https://github.com/emacs-dashboard/dashboard/pull/502">Play animated WebP banners</a></h3>
+              <p>Animated WebP banners stayed still. Added multi-frame image detection so they animate like GIFs.</p>
+              <p class="pr-foot"><span class="pr-merged"><span class="pill merged"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg>Merged</span>Mar 2024</span><a class="arrow-out" href="https://github.com/emacs-dashboard/dashboard/pull/502" aria-label="Pull request #502">#502</a></p>
+            </li>
+            <li class="pr">
+              <div class="pr-head">
+                <a class="pr-repo" href="https://github.com/LeandroBarone/python-ascii_magic">LeandroBarone/python-ascii_magic</a>
+                <a class="stars" href="https://github.com/LeandroBarone/python-ascii_magic" aria-label="LeandroBarone/python-ascii_magic on GitHub"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#star"/></svg><span data-stars="LeandroBarone/python-ascii_magic">179</span></a>
+              </div>
+              <h3><a href="https://github.com/LeandroBarone/python-ascii_magic/pull/14">1.68× smaller terminal output</a></h3>
+              <p>Stopped emitting a colour escape code for every character when its neighbours share the colour.</p>
+              <p class="pr-foot"><span class="pr-merged"><span class="pill merged"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg>Merged</span>Feb 2024</span><a class="arrow-out" href="https://github.com/LeandroBarone/python-ascii_magic/pull/14" aria-label="Pull request #14">#14</a></p>
+            </li>
+            <li class="pr">
+              <div class="pr-head">
+                <a class="pr-repo" href="https://github.com/0kzh/mac-inline-battery">0kzh/mac-inline-battery</a>
+                <a class="stars" href="https://github.com/0kzh/mac-inline-battery" aria-label="0kzh/mac-inline-battery on GitHub"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#star"/></svg><span data-stars="0kzh/mac-inline-battery">12</span></a>
+              </div>
+              <h3><a href="https://github.com/0kzh/mac-inline-battery/pull/7">Show 0% on an empty battery</a></h3>
+              <p>The KDE widget fell back to “100%” whenever the charge was zero. Fixed the boundary check.</p>
+              <p class="pr-foot"><span class="pr-merged"><span class="pill merged"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#merge"/></svg>Merged</span>Sep 2022</span><a class="arrow-out" href="https://github.com/0kzh/mac-inline-battery/pull/7" aria-label="Pull request #7">#7</a></p>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </section>
+
+      <!-- ============ Projects ============ -->
+      <section class="section" id="projects" aria-labelledby="projects-h">
+        <div class="wrap reveal">
+        <header class="section-head"><h2 id="projects-h">Projects</h2><p>Things I’ve built, from face matching to terminal games.</p></header>
+        <div>
+        <div class="cards">
+          <article class="card">
+            <div class="carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Picatu screenshots" style="--shot-bg:#e4e7ee;--shot-pad:0">
+              <div class="carousel-track" tabindex="0" aria-label="Picatu screenshots, use arrow keys to browse">
+                <img loading="lazy" src="/assets/img/picatu/create-event-card.webp" srcset="/assets/img/picatu/create-event-card-sm.webp 600w, /assets/img/picatu/create-event-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" alt="Create Event form with a dialog showing the new event's code and a QR code for guests.">
+                <img src="/assets/img/picatu/add-face-card.webp" srcset="/assets/img/picatu/add-face-card-sm.webp 600w, /assets/img/picatu/add-face-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" loading="lazy" alt="Add your face screen with a Start Camera button.">
+                <img src="/assets/img/picatu/home-card.webp" srcset="/assets/img/picatu/home-card-sm.webp 600w, /assets/img/picatu/home-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" loading="lazy" alt="Picatu home page: Find your photos in a snap.">
+                <img src="/assets/img/picatu/events-card.webp" srcset="/assets/img/picatu/events-card-sm.webp 600w, /assets/img/picatu/events-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" loading="lazy" alt="Supported events: live shows, sports, weddings and festivals.">
+              </div>
+              <div class="carousel-nav">
+                <span class="carousel-dots" aria-hidden="true"></span>
+              </div>
+              <p class="carousel-status sr-only" aria-live="polite"></p>
+            </div>
+            <div class="card-body">
+              <div class="card-head"><h3>Picatu</h3></div>
+              <p>Find yourself in event photos from a single selfie. A team project where I built the face-recognition service.</p>
+              <details class="more-info">
+                <summary><span class="when-closed">Read more</span><span class="when-open">Show less</span><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#chevron-down"/></svg></summary>
+                <ul class="ticks">
+                  <li>A team of three. My part was the recognition service: a Flask API with Celery workers on Redis, called by the team’s Node.js gateway.</li>
+                  <li>Uploaded event photos are encoded by a multithreaded C++17 program I wrote on Dlib’s ResNet face model, built against CUDA. Threads share a pool of model instances, and each photo gets a 128-number face descriptor.</li>
+                  <li>A guest’s selfie is encoded once and compared against every photo in the event. A distance of 0.6 or less counts as a match.</li>
+                </ul>
+              </details>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tech" data-brand="python"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#python"/></svg>Python</li>
+                <li class="tech" data-brand="flask"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#flask"/></svg>Flask</li>
+                <li class="tech" data-brand="cplusplus"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#cplusplus"/></svg>C++</li>
+                <li class="tech">Dlib</li>
+                <li class="tech">Celery</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="termrex screenshots" style="--shot-bg:#e4e7ee;--shot-pad:0">
+              <div class="carousel-track" tabindex="0" aria-label="termrex screenshots, use arrow keys to browse">
+                <img loading="lazy" src="/assets/img/termrex/running-card.webp" srcset="/assets/img/termrex/running-card-sm.webp 600w, /assets/img/termrex/running-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" alt="termrex mid-game: a pixel dinosaur running toward cacti, with the score at the top right.">
+                <img src="/assets/img/termrex/game-over-card.webp" srcset="/assets/img/termrex/game-over-card-sm.webp 600w, /assets/img/termrex/game-over-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" loading="lazy" alt="termrex game-over screen with a restart icon and high score.">
+                <img src="/assets/img/termrex/intro-card.webp" srcset="/assets/img/termrex/intro-card-sm.webp 600w, /assets/img/termrex/intro-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" loading="lazy" alt="termrex title screen with a how-to-play box.">
+              </div>
+              <div class="carousel-nav">
+                <span class="carousel-dots" aria-hidden="true"></span>
+              </div>
+              <p class="carousel-status sr-only" aria-live="polite"></p>
+            </div>
+            <div class="card-body">
+              <div class="card-head"><h3><a class="arrow-out" href="https://github.com/SATYADAHAL/termrex">termrex</a></h3><a class="star-btn" href="https://github.com/SATYADAHAL/termrex"><span class="star-btn-label"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#star"/></svg><span aria-hidden="true">Star</span></span><span class="star-btn-count"><span data-stars="SATYADAHAL/termrex">49</span><span class="sr-only"> stars on GitHub</span></span></a></div>
+              <p>The Chrome Dino runner for the terminal, in C++17 with no libraries: just termios and ANSI escape codes.</p>
+              <details class="more-info">
+                <summary><span class="when-closed">Read more</span><span class="when-open">Show less</span><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#chevron-down"/></svg></summary>
+                <ul class="ticks">
+                  <li>Runs in any POSIX terminal, down to a bare Linux virtual console.</li>
+                  <li>Asks the terminal if it speaks the Kitty keyboard protocol. If it does, ducking uses real key-release events; if not, a tunable key-repeat timer.</li>
+                  <li>Sprites are drawn as ASCII art and compiled by a small Python script into ANSI cursor-skip strings and collision masks, so hits are exact to the character.</li>
+                  <li>Delta-time game loop with rising speed. Pauses with a warning when the window gets too small, and always restores the terminal on exit.</li>
+                  <li>Unicode by default, with an ASCII-only mode for consoles without it.</li>
+                  <li>Packaged as an RPM from a spec file in the repo and published on Fedora COPR, so it installs with <code class="mono">dnf install termrex</code>. Elsewhere it builds with plain <code class="mono">make</code> on Linux, macOS and BSD.</li>
+                </ul>
+              </details>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tech" data-brand="cplusplus"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#cplusplus"/></svg>C++</li>
+                <li class="tech" data-brand="linux"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#linux"/></svg>Linux</li>
+                <li class="tech" data-brand="fedora"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#fedora"/></svg>Fedora</li>
+              </ul>
+              <p class="links"><a class="link-icon arrow-out" href="https://github.com/SATYADAHAL/termrex"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>Source</a><a class="link-icon arrow-out" data-brand="fedora" href="https://copr.fedorainfracloud.org/coprs/satya-pr-dahal/termrex/"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#fedora"/></svg>Fedora COPR</a></p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="carousel" style="--shot-bg:#e4e7ee">
+              <div class="carousel-track">
+                <img src="/assets/img/nepali-calendar/screens.webp" srcset="/assets/img/nepali-calendar/screens-sm.webp 800w, /assets/img/nepali-calendar/screens.webp 1600w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1600" height="900" loading="lazy" alt="Nepali Calendar widget in light and dark themes, showing Poush 2082 in Devanagari with Gregorian dates beneath each day.">
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-head"><h3><a class="arrow-out" href="https://store.kde.org/p/2303034/">Nepali Calendar</a></h3><a class="star-btn" href="https://github.com/SATYADAHAL/nepali-calendar"><span class="star-btn-label"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#star"/></svg><span aria-hidden="true">Star</span></span><span class="star-btn-count"><span data-stars="SATYADAHAL/nepali-calendar">17</span><span class="sr-only"> stars on GitHub</span></span></a></div>
+              <p>The Plasma widget that came before the upstream work, published on the KDE Store. Month picker, holidays, and tithi calculated from sun and moon longitudes, with no network calls.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tech" data-brand="qt"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#qt"/></svg>QML</li>
+                <li class="tech" data-brand="javascript"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#javascript"/></svg>JavaScript</li>
+                <li class="tech" data-brand="kde"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#kde"/></svg>KDE Plasma</li>
+              </ul>
+              <p class="links"><a class="link-icon arrow-out" href="https://github.com/SATYADAHAL/nepali-calendar"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>Source</a><a class="link-icon arrow-out" data-brand="kde" href="https://store.kde.org/p/2303034/"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#kde"/></svg>KDE Store</a></p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="carousel" style="--shot-bg:#e4e7ee">
+              <div class="carousel-track">
+                <img src="/assets/img/albert/screens.webp" srcset="/assets/img/albert/screens-sm.webp 800w, /assets/img/albert/screens.webp 1600w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1600" height="900" loading="lazy" alt="Albert launcher: typing KDE lists System Settings pages; searching kcm_s finds modules by their internal name.">
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-head"><h3><a class="arrow-out" href="https://github.com/SATYADAHAL/albert-plugin-kde-kcm">Albert KCM plugin</a></h3></div>
+              <p>Opens any KDE System Settings page straight from the Albert launcher, including the hidden ones Albert skips by default.</p>
+              <details class="more-info">
+                <summary><span class="when-closed">Read more</span><span class="when-open">Show less</span><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#chevron-down"/></svg></summary>
+                <ul class="ticks">
+                  <li>Finds settings modules through the Desktop Entry spec in the standard application directories.</li>
+                  <li>Filters them by session type, so X11-only or Wayland-only pages don’t show up in the wrong one.</li>
+                  <li>Type <code class="mono">KDE</code> to list them, or search globally; it can also match a module’s command, like <code class="mono">kcm_s</code>.</li>
+                </ul>
+              </details>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tech" data-brand="cplusplus"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#cplusplus"/></svg>C++</li>
+                <li class="tech" data-brand="qt"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#qt"/></svg>Qt</li>
+                <li class="tech" data-brand="kde"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#kde"/></svg>KDE Plasma</li>
+              </ul>
+              <p class="links"><a class="link-icon arrow-out" href="https://github.com/SATYADAHAL/albert-plugin-kde-kcm"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>Source</a></p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="termiType screenshots" style="--shot-bg:#e4e7ee;--shot-pad:0">
+              <div class="carousel-track" tabindex="0" aria-label="termiType screenshots, use arrow keys to browse">
+                <img loading="lazy" src="/assets/img/termitype/typing-dark-card.webp" srcset="/assets/img/termitype/typing-dark-card-sm.webp 600w, /assets/img/termitype/typing-dark-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" alt="termiType in a dark terminal: a timer and a stream of words, typed ones in green.">
+                <img src="/assets/img/termitype/typing-light-card.webp" srcset="/assets/img/termitype/typing-light-card-sm.webp 600w, /assets/img/termitype/typing-light-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" loading="lazy" alt="termiType in a light terminal with a mistyped word highlighted in red.">
+                <img src="/assets/img/termitype/results-card.webp" srcset="/assets/img/termitype/results-card-sm.webp 600w, /assets/img/termitype/results-card.webp 1200w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1200" height="675" loading="lazy" alt="Results: 100.8 words per minute, 96% accuracy, 98% confidence.">
+              </div>
+              <div class="carousel-nav">
+                <span class="carousel-dots" aria-hidden="true"></span>
+              </div>
+              <p class="carousel-status sr-only" aria-live="polite"></p>
+            </div>
+            <div class="card-body">
+              <div class="card-head"><h3><a class="arrow-out" href="https://github.com/SATYADAHAL/termiType">termiType</a></h3></div>
+              <p>A typing test for the terminal: live colour feedback, WPM, raw speed, accuracy, and a confidence score that tracks backspaces.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tech" data-brand="cplusplus"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#cplusplus"/></svg>C++</li>
+                <li class="tech" data-brand="linux"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#linux"/></svg>Linux</li>
+              </ul>
+              <p class="links"><a class="link-icon arrow-out" href="https://github.com/SATYADAHAL/termiType"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>Source</a></p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="carousel" style="--shot-bg:#e9eef7">
+              <div class="carousel-track">
+                <img src="/assets/img/trinetra/screens.webp" srcset="/assets/img/trinetra/screens-sm.webp 800w, /assets/img/trinetra/screens.webp 1600w" sizes="(max-width: 46rem) calc(100vw - 2rem), 34rem" width="1600" height="900" loading="lazy" alt="TriNetra's mobile app: live camera tiles for Front Door, Living Room and Garage; a history of recorded clips; and the login screen.">
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-head"><h3>TriNetra</h3></div>
+              <p>Violence detection for home CCTV: an AI service watches live camera feeds, records the moment something happens and alerts the owner’s phone.</p>
+              <details class="more-info">
+                <summary><span class="when-closed">Read more</span><span class="when-open">Show less</span><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#chevron-down"/></svg></summary>
+                <ul class="ticks">
+                  <li>A team of three. I built the backend: FastAPI services for auth, cameras and AI behind an API gateway, on PostgreSQL, all run with Docker Compose.</li>
+                  <li>The AI service reads each camera’s RTSP stream with OpenCV and classifies sequences of frames with a MobileNet + BiLSTM model in TensorFlow.</li>
+                  <li>Once violence holds for 30 frames it saves the clip, riding out short gaps so one incident stays one video, then stores a notification and shares the clip with the app.</li>
+                </ul>
+              </details>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tech" data-brand="python"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#python"/></svg>Python</li>
+                <li class="tech" data-brand="fastapi"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#fastapi"/></svg>FastAPI</li>
+                <li class="tech" data-brand="tensorflow"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#tensorflow"/></svg>TensorFlow</li>
+                <li class="tech" data-brand="opencv"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#opencv"/></svg>OpenCV</li>
+                <li class="tech" data-brand="postgresql"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#postgresql"/></svg>PostgreSQL</li>
+                <li class="tech" data-brand="docker"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#docker"/></svg>Docker</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ============ Skills ============ -->
+      <section class="section band" id="skills" aria-labelledby="skills-h">
+        <div class="wrap reveal">
+        <header class="section-head"><h2 id="skills-h">Toolbox</h2></header>
+        <div class="skills">
+          <div>
+            <h3>Scraping &amp; automation</h3>
+            <ul class="tags" aria-label="Technologies">
+              <li class="tech" data-brand="scrapy"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#scrapy"/></svg>Scrapy</li>
+              <li class="tech">Playwright</li>
+              <li class="tech" data-brand="selenium"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#selenium"/></svg>Selenium</li>
+              <li class="tech">Zendriver</li>
+              <li class="tech">BeautifulSoup</li>
+              <li class="tech">HTTPX</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Data &amp; backend</h3>
+            <ul class="tags" aria-label="Technologies">
+              <li class="tech" data-brand="python"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#python"/></svg>Python</li>
+              <li class="tech" data-brand="fastapi"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#fastapi"/></svg>FastAPI</li>
+              <li class="tech">REST</li>
+              <li class="tech">WebSockets</li>
+              <li class="tech" data-brand="sqlalchemy"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#sqlalchemy"/></svg>SQLAlchemy</li>
+              <li class="tech" data-brand="postgresql"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#postgresql"/></svg>PostgreSQL</li>
+              <li class="tech" data-brand="mysql"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#mysql"/></svg>MySQL</li>
+            </ul>
+          </div>
+          <div>
+            <h3>AI agents</h3>
+            <ul class="tags" aria-label="Technologies">
+              <li class="tech">MCP servers</li>
+              <li class="tech">Agent browser automation</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Systems &amp; desktop</h3>
+            <ul class="tags" aria-label="Technologies">
+              <li class="tech" data-brand="cplusplus"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#cplusplus"/></svg>C++</li>
+              <li class="tech" data-brand="chromium"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#chromium"/></svg>Chromium (source builds)</li>
+              <li class="tech" data-brand="qt"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#qt"/></svg>Qt</li>
+              <li class="tech" data-brand="kde"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#kde"/></svg>KDE Frameworks</li>
+              <li class="tech" data-brand="javascript"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#javascript"/></svg>JavaScript</li>
+              <li class="tech" data-brand="emacs"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#emacs"/></svg>Emacs Lisp</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Infrastructure</h3>
+            <ul class="tags" aria-label="Technologies">
+              <li class="tech" data-brand="linux"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#linux"/></svg>Linux</li>
+              <li class="tech" data-brand="docker"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#docker"/></svg>Docker</li>
+              <li class="tech" data-brand="jenkins"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#jenkins"/></svg>Jenkins</li>
+              <li class="tech" data-brand="s3"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#s3"/></svg>AWS S3</li>
+              <li class="tech" data-brand="git"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#git"/></svg>Git</li>
+              <li class="tech" data-brand="bash"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#bash"/></svg>Bash</li>
+              <li class="tech" data-brand="cmake"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#cmake"/></svg>CMake</li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ============ Community ============ -->
+      <section class="section" id="community" aria-labelledby="community-h">
+        <div class="wrap reveal">
+        <header class="section-head"><h2 id="community-h">Community</h2></header>
+        <ul class="list">
+          <li>
+            <h3>Founding member, GCES Linux Community</h3>
+            <span class="when">Gandaki College</span>
+            <p>Started a student community to get more people onto Linux and contributing to open source.</p>
+          </li>
+          <li>
+            <h3>Mentor, Linux Training Program</h3>
+            <span class="when">Dec 2023 — Jan 2024<span class="where">National Innovation Centre</span></span>
+            <p>Mentored the two-week program at the centre’s ICT Lab in Pokhara: Linux fundamentals, the terminal and basic system administration.</p>
+          </li>
+          <li>
+            <h3>1st runner-up, 9th GCES IT Expo</h3>
+            <span class="when">2023<span class="where">Gandaki College</span></span>
+            <p>KeySecure — a tool that protects Linux machines from keyloggers.</p>
+          </li>
+        </ul>
+        </div>
+      </section>
+
+      <!-- ============ Education ============ -->
+      <section class="section" id="education" aria-labelledby="education-h">
+        <div class="wrap reveal">
+        <header class="section-head"><h2 id="education-h">Education</h2></header>
+        <article class="role">
+          <div class="role-head">
+            <h3>Bachelor of Engineering, Software Engineering <span class="org">Gandaki College of Engineering and Science</span></h3>
+            <span class="when">2020 — 2025<span class="where">Pokhara, Nepal</span></span>
+          </div>
+          <div class="role-body">
+            <p>Coursework in data structures and algorithms, databases, operating systems and machine learning.</p>
+          </div>
+        </article>
+        </div>
+      </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="contact wrap" id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Have a project in mind?</h2>
+      <p class="contact-sub">Scraping, data pipelines or agent tooling: tell me what you’re working on.</p>
+      <p class="contact-links">
+        <span class="email-pair">
+          <a class="link-icon" href="mailto:dahal.satya321@gmail.com"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg>dahal.satya321@gmail.com</a>
+          <button class="copy" type="button" title="Copy email" data-copy="dahal.satya321@gmail.com"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg><span class="sr-only">Copy email</span></button>
+        </span>
+        <a class="link-icon" data-brand="linkedin" href="https://www.linkedin.com/in/satya-prakash-dahal" rel="me"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#linkedin"/></svg>LinkedIn</a>
+        <a class="link-icon" href="https://github.com/SATYADAHAL" rel="me"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#github"/></svg>GitHub</a>
+      </p>
+
+      <form class="contact-form" id="contact-form" aria-labelledby="contact-form-h">
+        <h3 id="contact-form-h">Or send a message</h3>
+        <div class="field-row">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" placeholder="What are you working on, and how can I help?" required></textarea>
+        </div>
+        <div class="captcha" id="cf-captcha"></div>
+        <div class="form-foot">
+          <button class="button" type="submit">Send message</button>
+          <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+        </div>
+        <noscript><p class="form-status">The form needs JavaScript. Email me at the address above instead.</p></noscript>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Satya Prakash Dahal</span>
+      <a class="to-top" href="#">Back to top <span aria-hidden="true">↑</span></a>
+      <span class="credit">Brush stroke by <a href="https://www.vecteezy.com/">Vecteezy.com</a></span>
+    </div>
+  </footer>
+</body>
+</html>
