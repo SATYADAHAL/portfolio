@@ -4,11 +4,28 @@ import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navigation from '../components/Navigation';
-import { FiMail, FiMessageSquare, FiMapPin } from 'react-icons/fi';
+import { FiMail, FiMapPin, FiChevronRight } from 'react-icons/fi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FaSquareXTwitter } from 'react-icons/fa6';
+import { FaXTwitter } from 'react-icons/fa6';
 import { Slide } from 'react-toastify';
 import ReCAPTCHA from 'react-google-recaptcha';
+
+const toastOptions = {
+  position: 'bottom-right' as const,
+  autoClose: 3000,
+  theme: 'light' as const,
+  transition: Slide,
+};
+
+const links = [
+  { href: 'mailto:dahal.satya321@gmail.com', label: 'Email', detail: 'dahal.satya321@gmail.com', Icon: FiMail, external: false },
+  { href: 'https://github.com/satyadahal', label: 'GitHub', detail: 'satyadahal', Icon: FaGithub, external: true },
+  { href: 'https://www.linkedin.com/in/satya-prakash-dahal/', label: 'LinkedIn', detail: 'satya-prakash-dahal', Icon: FaLinkedin, external: true },
+  { href: 'https://x.com/SatyaPrDahal', label: 'X', detail: '@SatyaPrDahal', Icon: FaXTwitter, external: true },
+];
+
+const inputClass =
+  'mt-2 w-full rounded-xl border border-line bg-surface px-4 py-3 text-[17px] placeholder:text-secondary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 disabled:opacity-50';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -23,17 +40,7 @@ export default function Contact() {
     e.preventDefault();
 
     if (!captchaToken) {
-      toast.error('Please complete the reCAPTCHA.', {
-        position: 'bottom-right',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-        transition: Slide,
-      });
+      toast.error('Please complete the reCAPTCHA to send your message.', toastOptions);
       return;
     }
 
@@ -52,198 +59,127 @@ export default function Contact() {
       const text = await response.text();
 
       if (response.ok) {
-        toast.success(
-          <span role="img" aria-label="unicorn">
-            Message Sent Successfully.
-          </span>,
-          {
-            position: 'bottom-right',
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: 'light',
-            transition: Slide,
-          }
-        );
+        toast.success('Message sent. Thanks, I\'ll be in touch.', toastOptions);
         setFormData({ name: '', email: '', message: '' });
-        setCaptchaToken('');
+        setCaptchaToken(null);
       } else {
-        toast.error(text || 'Something went wrong. Please try again.', {
-          position: 'bottom-right',
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: 'light',
-          transition: Slide,
-        });
+        toast.error(text || 'Something went wrong. Please try again.', toastOptions);
       }
     } catch (error) {
       console.error('Caught error:', error);
-      toast.error('Network error. Please try again later.', {
-        position: 'bottom-right',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-        transition: Slide,
-      });
+      toast.error('Network error. Please try again later.', toastOptions);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main>
       <Navigation />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">Contact Me</h2>
-          <div className="bg-white rounded-lg shadow-md p-8 mb-3">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
-                <p className="text-gray-700 mb-6">
-                  I&apos;m always interested in hearing about new projects and opportunities. Feel
-                  free to reach out through any of these channels:
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center text-gray-700">
-                    <FiMail className="w-6 h-6 mr-3" />
-                    <a href="mailto:dahal.satya321@gmail.com" className="hover:underline">
-                      dahal.satya321@gmail.com
-                    </a>
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <FiMessageSquare className="w-6 h-6 mr-3" />
-                    Let&apos;s chat on LinkedIn
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <FiMapPin className="w-6 h-6 mr-3" />
-                    Pokhara, Nepal
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Professional Profiles</h3>
-                <div className="space-y-4">
-                  <a
-                    href="https://github.com/satyadahal"
-                    className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div className="flex items-center">
-                      <FaGithub className="w-6 h-6 mr-3" />
-                      GitHub Profile
-                    </div>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/satya-prakash-dahal/"
-                    className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div className="flex items-center">
-                      <FaLinkedin className="w-6 h-6 mr-3" />
-                      LinkedIn Profile
-                    </div>
-                  </a>
-                  <a
-                    href="https://x.com/SatyaPrDahal"
-                    className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div className="flex items-center">
-                      <FaSquareXTwitter className="w-6 h-6 mr-3" />
-                      Twitter Profile
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="mt-5">
-              <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-gray-700">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full p-3 border rounded-lg"
-                    disabled={isSubmitting}
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-700">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full p-3 border rounded-lg"
-                    disabled={isSubmitting}
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-700">Message</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    className="w-full p-3 border rounded-lg h-32"
-                    disabled={isSubmitting}
-                  />
-                </div>
-                <ReCAPTCHA
-                  sitekey="6LcWMlArAAAAADD4-ERBiMNTOZR7TmBa3npUUvk6"
-                  onChange={(token) => setCaptchaToken(token)}
-                />
 
-                <button
-                  type="submit"
+      <div className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8 sm:pt-40">
+        <h1 className="rise text-[clamp(2.25rem,6vw,3.5rem)] font-bold leading-tight tracking-[-0.03em]">
+          Contact.
+        </h1>
+        <p className="rise mt-2 max-w-xl text-xl text-secondary" style={{ animationDelay: '0.1s' }}>
+          I&apos;m always interested in hearing about new projects and opportunities.
+        </p>
+
+        <div className="mt-12 grid gap-12 md:grid-cols-[1fr_1.2fr]">
+          <section aria-labelledby="channels">
+            <h2 id="channels" className="mb-4 text-2xl font-semibold tracking-tight">
+              Find me online
+            </h2>
+            <ul className="card group-list overflow-hidden">
+              {links.map(({ href, label, detail, Icon, external }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className="flex items-center gap-4 px-5 py-4 transition-colors hover:bg-fill"
+                  >
+                    <Icon className="shrink-0 text-2xl" aria-hidden="true" />
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-medium">{label}</span>
+                      <span className="block truncate text-sm text-secondary">{detail}</span>
+                    </span>
+                    <FiChevronRight className="shrink-0 text-xl text-secondary" aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 flex items-center gap-2 text-sm text-secondary">
+              <FiMapPin aria-hidden="true" /> Pokhara, Nepal
+            </p>
+          </section>
+
+          <section aria-labelledby="message">
+            <h2 id="message" className="mb-4 text-2xl font-semibold tracking-tight">
+              Send a message
+            </h2>
+            <form onSubmit={handleSubmit} className="card space-y-5 p-6 sm:p-8">
+              <div>
+                <label htmlFor="name" className="text-sm font-medium">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  autoComplete="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   disabled={isSubmitting}
-                  className={`bg-blue-600 text-white px-6 py-3 rounded-lg transition ${
-                    isSubmitting
-                      ? 'opacity-50 cursor-not-allowed'
-                      : 'hover:bg-blue-700 cursor-pointer'
-                  }`}
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-              </form>
-            </div>
-          </div>
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="text-sm font-medium">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  disabled={isSubmitting}
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label htmlFor="message-text" className="text-sm font-medium">
+                  Message
+                </label>
+                <textarea
+                  id="message-text"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  disabled={isSubmitting}
+                  className={`${inputClass} h-36 resize-y`}
+                />
+              </div>
+
+              <ReCAPTCHA
+                sitekey="6LcWMlArAAAAADD4-ERBiMNTOZR7TmBa3npUUvk6"
+                onChange={(token) => setCaptchaToken(token)}
+              />
+
+              <button type="submit" disabled={isSubmitting} className="btn btn-primary w-full sm:w-auto">
+                {isSubmitting ? 'Sending…' : 'Send message'}
+              </button>
+            </form>
+          </section>
         </div>
       </div>
 
-      <ToastContainer
-        position="bottom-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover={false}
-        theme="light"
-        transition={Slide}
-      />
+      <ToastContainer {...toastOptions} pauseOnFocusLoss draggable closeOnClick />
     </main>
   );
 }
